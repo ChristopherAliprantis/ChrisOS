@@ -20,7 +20,6 @@ templist = []
 history = []
 var = None
 
-
 def usage():
     system_type = platform.system()
 
