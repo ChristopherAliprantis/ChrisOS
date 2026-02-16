@@ -1,1 +1,1 @@
-# ChrisOS
+This is my python OS-ish feel free to interpret and use this.
