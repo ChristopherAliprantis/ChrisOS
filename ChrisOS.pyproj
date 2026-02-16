@@ -27,6 +27,7 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Compile Include="ChrisOS.py" />
+    <Content Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <Target Name="BeforeBuild">
