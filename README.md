@@ -1,5 +1,7 @@
 This is my python OS-ish feel free to interpret and use this.
 
+Current version: 2
+
 NOTE:
 
 you might need to change your terminal font because some color characters might not render correctly, also the black and white color characters are those color blocks, 
