@@ -224,6 +224,7 @@ except:
 
 if var:
     load_from_disk('y')
+oh = None
 time += 1
 save_to_disk(False, True)
 history = []
@@ -236,7 +237,8 @@ while True:
     if command != '':
             history.append(command)
     
-    command = input('>> ').strip()
+    if oh == None: command = input('>> ').strip()
+    else: command = oh
     if command == '+':
         try:
             num1 = float(input('num1 >> '))
@@ -291,6 +293,14 @@ while True:
             print("file type not found!")
     elif command == 'dir' or command == 'ls':
         print(dirlist)
+    elif command == 'redo':
+        for i in range(len(history)):
+            print(f'{i+1}:{history[i]}')
+        print()
+        num = int(input('command: '))
+        oh = history[num-1]
+        continue
+
     elif command.startswith('read '):
         nme = command[5:].strip()
         if nme.endswith(".txt"):    
@@ -473,6 +483,7 @@ while True:
             continue
     else:
         check()
+    oh = None
 
 
 
