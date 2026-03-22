@@ -12,7 +12,7 @@ def date():
 time = 1
 TLF = 10000
 lines_taken = 0
-vers = 'ChrisOS™ 2'
+vers = 'ChrisOS™ 3 alpha'
 files = {}
 dirlist = ['Tic-Tac-Toe.pre',]
 filelist = []
@@ -339,6 +339,12 @@ while True:
         print(vers)
     elif command == 'files':
         print(filelist)
+    elif command == 'cl':
+        system_type = platform.system()
+        if system_type == 'Windows':
+            r = os.system('powershell "cls"')
+        else:
+             r = os.system('clear')
     elif command.startswith('delete '):
         nme = command[7:] 
         if nme in files:
@@ -364,7 +370,7 @@ while True:
         else:
             print('Name not found!')
     elif command == 'help':
-        print('+ : addition\n- : subtraction\n* : multiplication\n/ : division\n^ : power\nnew (file name) : make an initial new file(you can use the edit command to modify it)\nread (name file you want to read): reads a file\nversion : OS version\ndelete (name of thing you want to delete) : deletes a file\nfiles : view file names\ndir or ls : see the directory\nexit : shut down the computer\nhelp : shows commands and their actions\ndate : shows the date\ndata : shows the total amount of lines in files\nboots : shows how many times the system has been booted\nformats : shows formats that are used in the sytem\nhistory : shows command history(on the main prompt not like in applications) of the session\ncodes : gives you color codes for image editor\nCPUse : shows CPU usage percentage\nPrun (name of what ever pre you want to run) : runs applications with \'.pre\' ending\npres : displays .pre programs\nrename (name of file you want to rename) as (name you want to rename it to) : renames files\n(file name) : says if it\'s a file or not\nedit : edits a file\ncopy (file name) : copies  a file\nChrisOS: data: : shows state of memory')
+        print('+ : addition\n- : subtraction\n* : multiplication\n/ : division\n^ : power\nnew (file name) : make an initial new file(you can use the edit command to modify it)\nread (name file you want to read): reads a file\nversion : OS version\ndelete (name of thing you want to delete) : deletes a file\nfiles : view file names\ndir or ls : see the directory\nexit : shut down the computer\nhelp : shows commands and their actions\ndate : shows the date\ndata : shows the total amount of lines in files\nboots : shows how many times the system has been booted\nformats : shows formats that are used in the sytem\nhistory : shows command history(on the main prompt not like in applications) of the session\ncodes : gives you color codes for image editor\ncl : clears the screen\nCPUse : shows CPU usage percentage\nPrun (name of what ever pre you want to run) : runs applications with \'.pre\' ending\npres : displays .pre programs\nrename (name of file you want to rename) as (name you want to rename it to) : renames files\n(file name) : says if it\'s a file or not\nedit : edits a file\ncopy (file name) : copies  a file\nChrisOS: data: : shows state of memory')
     elif command == 'codes':
         print('R : red\nO : orange\nY : yellow\nG : green\nD : blue\nP : purple\nb : brown\nB : black\nW : white')
         print("hint: when you are making a new image file, if you want one row to have red color, red color, then black, type RRB, also you can put spaces in it")
