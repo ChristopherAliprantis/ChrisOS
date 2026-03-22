@@ -2,6 +2,7 @@
 import platform
 import os
 import re
+import random as rand
 from datetime import datetime
 import random
 
@@ -12,7 +13,7 @@ def date():
 time = 1
 TLF = 10000
 lines_taken = 0
-vers = 'ChrisOS™ 3 alpha'
+vers = 'ChrisOS™ 3 beta'
 files = {}
 dirlist = ['Tic-Tac-Toe.pre',]
 filelist = []
@@ -241,42 +242,65 @@ while True:
     else: command = oh
     if command == '+':
         try:
-            num1 = float(input('num1 >> '))
-            num2 = float(input('num2 >> '))
-            print(f'= {num1 + num2}')
+            num1 = float(input('num1: '))
+            num2 = float(input('num2: '))
+            print(f'{num1 + num2}')
         except:
             print('invalid input')
     elif command == '*':
         try:
-            num1 = float(input('num1 >> '))
-            num2 = float(input('num2 >> '))
-            print(f'= {num1 * num2}')
+            num1 = float(input('num1: '))
+            num2 = float(input('num2: '))
+            print(f'{num1 * num2}')
         except: 
             print('invalid input')
     elif command == '-':
         try:
-            num1 = float(input('num1 >> '))
-            num2 = float(input('num2 >> '))
-            print(f'= {num1 - num2}')
+            num1 = float(input('num1: '))
+            num2 = float(input('num2: '))
+            print(f'{num1 - num2}')
         except:
             print('invalid input')
     elif command == '/':
         try:
-            num1 = float(input('num1 >> '))
-            num2 = float(input('num2 >> '))
+            num1 = float(input('num1: '))
+            num2 = float(input('num2: '))
             if num2 == 0:
                 print('Can\'t do division by 0s!')
                 continue
-            print(f'= {num1 / num2}')
+            print(f'{num1 / num2}')
         except:
             print('invalid input')
     elif command == '^':
         try:
-            num1 = float(input('num1 >> '))
-            num2 = float(input('num2 >> '))
-            print(f'= {num1 ** num2}')
+            num1 = float(input('num1: '))
+            num2 = float(input('num2: '))
+            print(f'{num1 ** num2}')
         except:
             print('invalid input')
+    elif command == 'randint':
+        try:
+            num1 = int(input('range param1: '))
+            num2 = int(input('range param2: '))
+            print(f'{rand.randint(num1, num2)}')
+        except:
+            print('invalid input')
+    elif command == 'randfloat':
+        try:
+            num1 = float(input('range param1: '))
+            num2 = float(input('range param2: '))
+            print(f'{rand.uniform(num1, num2)}')
+        except:
+            print('invalid input')
+    elif command == 'randstr':
+        try:
+            chars = int(input('characters: '))
+            complete = ''
+            for i in range(chars):
+                complete += chr(random.randint(0, 127))
+            print(complete)
+        except:
+            print('invalid input!')
     elif command.startswith('new '):
         if (command[4:].endswith(".im")) or command[4:].endswith(".txt"):
             name = new(command[4:].lstrip())
@@ -294,13 +318,15 @@ while True:
     elif command == 'dir' or command == 'ls':
         print(dirlist)
     elif command == 'redo':
-        for i in range(len(history)):
-            print(f'{i+1}:{history[i]}')
-        print()
-        num = int(input('command: '))
-        oh = history[num-1]
-        continue
-
+        try:        
+            for i in range(len(history)):
+                print(f'{i+1}:{history[i]}')
+            print()
+            num = int(input('command: '))
+            oh = history[num-1]
+            continue
+        except:
+            print('invalid input!')
     elif command.startswith('read '):
         nme = command[5:].strip()
         if nme.endswith(".txt"):    
@@ -380,7 +406,7 @@ while True:
         else:
             print('Name not found!')
     elif command == 'help':
-        print('+ : addition\n- : subtraction\n* : multiplication\n/ : division\n^ : power\nnew (file name) : make an initial new file(you can use the edit command to modify it)\nread (name file you want to read): reads a file\nversion : OS version\ndelete (name of thing you want to delete) : deletes a file\nfiles : view file names\ndir or ls : see the directory\nexit : shut down the computer\nhelp : shows commands and their actions\ndate : shows the date\ndata : shows the total amount of lines in files\nboots : shows how many times the system has been booted\nformats : shows formats that are used in the sytem\nhistory : shows command history(on the main prompt not like in applications) of the session\ncodes : gives you color codes for image editor\nredo: you pick to run a command from your history\ncl : clears the screen\nCPUse : shows CPU usage percentage\nPrun (name of what ever pre you want to run) : runs applications with \'.pre\' ending\npres : displays .pre programs\nrename (name of file you want to rename) as (name you want to rename it to) : renames files\n(file name) : says if it\'s a file or not\nedit : edits a file\ncopy (file name) : copies  a file\nChrisOS: data: : shows state of memory')
+        print('+ : addition\n- : subtraction\n* : multiplication\n/ : division\n^ : power\nrandint: generates a random integer in a range\nrandfloat: generates a random float in a range\nrandstr: generates a random string form an amount of characters\nnew (file name) : make an initial new file(you can use the edit command to modify it)\nread (name file you want to read): reads a file\nversion : OS version\ndelete (name of thing you want to delete) : deletes a file\nfiles : view file names\ndir or ls : see the directory\nexit : shut down the computer\nhelp : shows commands and their actions\ndate : shows the date\ndata : shows the total amount of lines in files\nboots : shows how many times the system has been booted\nformats : shows formats that are used in the sytem\nhistory : shows command history(on the main prompt not like in applications) of the session\ncodes : gives you color codes for image editor\nredo: you pick to run a command from your history\ncl : clears the screen\nCPUse : shows CPU usage percentage\nPrun (name of what ever pre you want to run) : runs applications with \'.pre\' ending\npres : displays .pre programs\nrename (name of file you want to rename) as (name you want to rename it to) : renames files\n(file name) : says if it\'s a file or not\nedit : edits a file\ncopy (file name) : copies  a file\nChrisOS: data: : shows state of memory')
     elif command == 'codes':
         print('R : red\nO : orange\nY : yellow\nG : green\nD : blue\nP : purple\nb : brown\nB : black\nW : white')
         print("hint: when you are making a new image file, if you want one row to have red color, red color, then black, type RRB, also you can put spaces in it")
