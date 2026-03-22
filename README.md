@@ -1,6 +1,6 @@
 This is my python OS-ish feel free to interpret and use this.
 
-Current version: 2
+Current version(as of latest release): 2
 
 NOTE:
 
