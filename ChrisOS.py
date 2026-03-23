@@ -337,11 +337,11 @@ while True:
                 else:
                     print(content)
             else:
-                print('Name not found!')
+                print('File not found!')
         elif nme.endswith('im'):
             content = files.get(nme)
             if content is None:
-                print('Name not found!')
+                print('File not found!')
                 continue
             ncontent = []
             for i in range (len(content)):
@@ -404,7 +404,7 @@ while True:
             else:
                 print('invalid answer')
         else:
-            print('Name not found!')
+            print('File not found!')
     elif command == 'help':
         print('+ : addition\n- : subtraction\n* : multiplication\n/ : division\n^ : power\nrandint: generates a random integer in a range\nrandfloat: generates a random float in a range\nrandstr: generates a random string form an amount of characters\nnew (file name) : makes a new file(you can use the edit command to modify it)\nread (name file you want to read): reads a file\nversion : OS version\ndelete (name of thing you want to delete) : deletes a file\nfiles : view file names\ndir or ls : see the directory\nexit : shuts down the computer\nhelp : shows commands and their actions\ndate : shows the date\ndata : shows the total amount of lines in files\nboots : shows how many times the system has been booted\nformats : shows formats that are used in the sytem\nhistory : shows command history(on the main prompt not like in applications) of the session\ncodes : gives you color codes for image editor\nredo: you pick to run a command from your history\ncl : clears the screen\nCPUse : shows CPU usage percentage\nPrun (name of what ever pre you want to run) : runs applications with \'.pre\' ending\npres : displays .pre programs\nrename (name of file you want to rename) as (name you want to rename it to) : renames files\n(file name) : says if it\'s a file or not\nedit : edits a file\ncopy (file name) : copies  a file\nChrisOS: data : shows state of memory')
     elif command == 'codes':
@@ -498,8 +498,22 @@ while True:
             print('file type not found!')
     elif command.startswith('rename') == False:
         if command.endswith('.txt'):
-            if command in filelist:
-                print(f'{command} is a file')
+            if command in dirlist:
+                print(f'{command} is a text file')
+                continue
+            else:
+                print(f'{command} is not a file')
+                continue
+        elif command.endswith('.im'):
+            if command in dirlist:
+                print(f'{command} is an image file')
+                continue
+            else:
+                print(f'{command} is not a file')
+                continue
+        elif command.endswith('.pre'):
+            if command in dirlist:
+                print(f'{command} is a preinstalled application')
                 continue
             else:
                 print(f'{command} is not a file')
