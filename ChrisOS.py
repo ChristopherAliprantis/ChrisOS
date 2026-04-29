@@ -13,7 +13,7 @@ def date():
 time = 1
 TLF = 10000
 lines_taken = 0
-vers = 'ChrisOS™ 3 beta'
+vers = 'ChrisOS™ 3'
 files = {}
 dirlist = ['Tic-Tac-Toe.pre',]
 filelist = []
